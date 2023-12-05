@@ -99,10 +99,10 @@ pred_data
 {"id": "nikluge-2023-iau-train-000007", "input": "개 휘둘린다 ..", "output": "NEGATIVE"}
 ```
 
-dev 데이터에 대한 베이스라인의 평가 결과는 아래와 같습니다.
-| 모델              | F1   |
-| ----------------- | ---- |
-| klue/roberta-base | 0.89 |
+베이스라인의 평가 결과는 아래와 같습니다.
+| 모델              | F1-micro | F1-macro |
+| ----------------- | ---- | ---- |
+| klue/roberta-base | 0.885 | 0.825 |
 
 
 ## reference
