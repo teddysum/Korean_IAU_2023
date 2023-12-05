@@ -38,7 +38,7 @@ klue/roberta-base( https://huggingface.co/klue/roberta-base )를 기반으로 �
 
 학습된 베이스라인 모델은 아래 링크에서 받으실 수 있습니다.
 
-model link:
+model link: https://drive.google.com/file/d/10VV00HDAA2kymRsQtvMn5EdxbsjuBIQ5/view?usp=sharing
 
 모델 입력 형태를 \<s>발화\</s>로 하고 긍정적인 의미로 말한것인지, 부정적인 의미로 말한것인지에 대해 분류합니다(이진 분류).
 
