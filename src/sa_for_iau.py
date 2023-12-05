@@ -199,14 +199,15 @@ def get_dataset(raw_data, tokenizer, max_len):
 
 
 def evaluation(y_true, y_pred):
-    y_true = list(map(int, y_true))
-    y_pred = list(map(int, y_pred))
+    # y_true = list(map(int, y_true))
+    # y_pred = list(map(int, y_pred))
 
     print(y_true[:5])
     print(y_pred[:5])
 
     print('f1_score: ', f1_score(y_true, y_pred, average=None))
     print('f1_score_micro: ', f1_score(y_true, y_pred, average='micro'))
+    print('f1_score_macro: ', f1_score(y_true, y_pred, average='macro'))
 
 
 def train(args=None):
@@ -357,13 +358,15 @@ def demo(args):
 
     test_data = jsonlload(args.test_data)
 
-    model = CustomClassifier(args, 2, len(tokenizer))
+    model = CustomClassifier(args, len(labels), len(tokenizer))
     model.load_state_dict(torch.load(args.model_path, map_location=device))
     model.to(device)
     model.eval()
 
     for data in tqdm(test_data):
-        tokenized_data = tokenizer(data['input'], padding='max_length', max_length=args.max_len, truncation=True)
+        input_text = data['input']
+
+        tokenized_data = tokenizer(input_text, padding='max_length', max_length=args.max_len, truncation=True)
 
         input_ids = torch.tensor([tokenized_data['input_ids']]).to(device)
         attention_mask = torch.tensor([tokenized_data['attention_mask']]).to(device)
@@ -371,7 +374,7 @@ def demo(args):
         with torch.no_grad():
             _, logits = model(input_ids, attention_mask)
         predictions = torch.argmax(logits, dim=-1)
-        data['output'] = id2label(int(predictions[0]))
+        data['output'] = id2label[int(predictions[0])]
 
     jsonldump(test_data, args.output_dir + 'result.jsonl')
 
