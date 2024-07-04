@@ -1,6 +1,6 @@
 # korean_IAU_baseline
 
-본 소스 코드는 '국립국어원 인공 지능 언어 능력 평가' 시범 운영 과제 중 '부적절성 문장에 대한 태도 탐지' 과제 베이스라인 모델 및 학습과 평가를 위한 코드입니다.
+본 소스 코드는 '국립국어원 인공지능의 한국어 능력 평가' 시범 운영 과제 중 '부적절성 문장에 대한 태도 탐지' 과제 베이스라인 모델 및 학습과 평가를 위한 코드입니다.
 
 코드는 'sa_for_iau'이며 ' train.sh'를 이용하여 학습할 수 있습니다. 또 'demo.sh' 를 학습된 모델에 활용하여 결과를 생성한 뒤, 'test.sh'를 실행하면 결과물에 대한 평가를 할 수 있습니다.
 
@@ -108,6 +108,6 @@ pred_data
 ## reference
 klue/roberta-base in huggingface (https://huggingface.co/klue/roberta-base)
 
-국립국어원 모두의말뭉치 (https://corpus.korean.go.kr/)
+인공지능(AI)말평(kli.korean.go.kr/benchmark)
 ## Authors
 - 정용빈, Teddysum, ybjeong@teddysum.ai
